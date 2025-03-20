@@ -33,7 +33,7 @@ public class SaveGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Arquivo de save n„o encontrado.");
+            Debug.Log("Arquivo de save n√£o encontrado.");
             return;
         }
     }
