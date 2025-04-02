@@ -5,16 +5,20 @@ public class PlayerStatus : MonoBehaviour
     public static PlayerStatus instance;
 
     [SerializeField]
-    int life;
+    public int maxMana, maxLife;
 
-    [SerializeField]
-    int mana;
+    [HideInInspector]
+    public int mana, life;
+
+    
 
     private void Awake()
     {
         instance = this;
+        life = maxLife;
+        mana = maxMana;
     }
-
+    
     public int GetLife()
     {
         return life;

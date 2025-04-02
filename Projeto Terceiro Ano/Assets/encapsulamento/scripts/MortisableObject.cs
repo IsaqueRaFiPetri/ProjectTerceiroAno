@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DamagebleObject : MonoBehaviour
+public class MortisableObject : MonoBehaviour
 {
     [SerializeField] int damage;
     
@@ -10,6 +10,7 @@ public class DamagebleObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerStatus.instance.TakeDamage(damage);
+            HUD.instance.SetLife();
         }
     }
 }
