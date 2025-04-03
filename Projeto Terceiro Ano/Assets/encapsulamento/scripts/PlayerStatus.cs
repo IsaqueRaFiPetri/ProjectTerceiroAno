@@ -5,12 +5,14 @@ public class PlayerStatus : MonoBehaviour
     public static PlayerStatus instance;
 
     [SerializeField]
-    public int maxMana, maxLife;
+    int maxMana, maxLife;
 
-    [HideInInspector]
-    public int mana, life;
+    int mana, life;
 
-    
+    public int Mana { get => mana; }
+    public int Life { get => life; }
+    public int MaxMana { get => maxMana; }
+    public int MaxLife { get => maxLife; }
 
     private void Awake()
     {
@@ -19,18 +21,13 @@ public class PlayerStatus : MonoBehaviour
         mana = maxMana;
     }
     
-    public int GetLife()
-    {
-        return life;
-    }
-
-    public int GetMana()
-    {
-        return mana;
-    }
-
     public void TakeDamage(int damage)
     {
         life -= damage;
+    }
+
+    public void LoseMana(int cost)
+    {
+        mana -= cost;
     }
 }
