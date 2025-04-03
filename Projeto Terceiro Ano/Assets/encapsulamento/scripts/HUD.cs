@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     {
         instance = this;
         SetLife();
+        SetMana();
     }
 
     public void SetLife()

@@ -2171,7 +2171,7 @@ Transform:
   m_GameObject: {fileID: 1112368715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2190,8 +2190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5587451654712492419, guid: d30f94cf654b5a64eb15fe6bb4307733, type: 3}
-  launchVelocity: 700
-  manaCost: 10
+  launchVelocity: 350
+  frontForce: 700
+  manaCost: 7
 --- !u!1 &1259495635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2614,7 @@ GameObject:
   - component: {fileID: 1735207084}
   - component: {fileID: 1735207083}
   - component: {fileID: 1735207087}
+  - component: {fileID: 1735207088}
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
@@ -2718,6 +2720,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 718311497}
   manaBar: {fileID: 1259495637}
+--- !u!114 &1735207088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735207082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d25a463362975c4dacd812df3236ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenRate: 2
+  regenInterval: 5
 --- !u!1 &1773383776
 GameObject:
   m_ObjectHideFlags: 0

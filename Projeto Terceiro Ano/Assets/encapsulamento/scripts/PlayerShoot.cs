@@ -6,17 +6,10 @@ public class PlayerShoot : MonoBehaviour
     GameObject projectile;
 
     [SerializeField]
-    float launchVelocity;
-
-    bool readyToShoot;
+    float launchVelocity, frontForce;
 
     [SerializeField]
     int manaCost;
-
-    private void Awake()
-    {
-        readyToShoot = true;
-    }
 
     private void Update()
     {
@@ -26,12 +19,10 @@ public class PlayerShoot : MonoBehaviour
             {
                 GameObject ball = Instantiate(projectile, transform.position, transform.rotation);
 
-                ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, launchVelocity, 0));
-
-                readyToShoot = false;
+                ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, launchVelocity, frontForce));
 
                 PlayerStatus.instance.LoseMana(manaCost);
-                Debug.Log(PlayerStatus.instance.Mana);
+                HUD.instance.SetMana();
             }
         }
         
