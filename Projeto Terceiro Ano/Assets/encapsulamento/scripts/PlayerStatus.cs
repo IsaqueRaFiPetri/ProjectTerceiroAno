@@ -10,7 +10,7 @@ public class PlayerStatus : MonoBehaviour
     int mana, life;
 
     public int Mana { get => mana; set => mana = value; }
-    public int Life { get => life; }
+    public int Life { get => life; set => life = value; }
     public int MaxMana { get => maxMana; }
     public int MaxLife { get => maxLife; }
 
@@ -23,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        life -= damage;
+        Life -= damage;
     }
 
     public void LoseMana(int cost)
