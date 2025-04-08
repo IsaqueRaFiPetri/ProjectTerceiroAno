@@ -13,7 +13,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerStatus.instance.Mana >= manaCost)
+        /*if (PlayerStatus.instance.Mana >= manaCost)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -24,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
                 PlayerStatus.instance.LoseMana(manaCost);
                 HUD.instance.SetMana();
             }
-        }
+        }*/
         
     }
 }

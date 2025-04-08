@@ -9,16 +9,16 @@ public class HUD : MonoBehaviour
     void Start()
     {
         instance = this;
-        SetLife();
-        SetMana();
+        /*SetLife();
+        SetMana();*/
     }
 
-    public void SetLife()
+    /*public void SetLife()
     {
         hpBar.fillAmount = (float)PlayerStatus.instance.Life / PlayerStatus.instance.MaxLife;
     }
     public void SetMana()
     {
         manaBar.fillAmount = (float)PlayerStatus.instance.Mana / PlayerStatus.instance.MaxMana;
-    }
+    }*/
 }

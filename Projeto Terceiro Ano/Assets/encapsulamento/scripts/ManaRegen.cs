@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ManaRegen : MonoBehaviour
 {
-    [SerializeField] int regenRate; 
+    /*[SerializeField] int regenRate; 
     [SerializeField] float regenInterval;
 
     float regenTimer;
@@ -27,5 +27,5 @@ public class ManaRegen : MonoBehaviour
     {
         PlayerStatus.instance.Mana = Mathf.Min(PlayerStatus.instance.Mana + regenRate, PlayerStatus.instance.MaxMana); //to make Mana be able to read in the first part of the code, it need to have a set.
         regenTimer = 0f;
-    }
+    }*/
 }
