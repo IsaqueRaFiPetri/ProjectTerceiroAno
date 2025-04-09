@@ -1,16 +1,50 @@
 using UnityEngine;
 
-public class MeeleGun : MonoBehaviour
+public class MeeleGun : GunSystem
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] string nameGun;
+
+    private void Update()
     {
-        
+        MyInput();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Shoot()
     {
+        readyToShoot = false;
+
+        //RayCast
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out rayHit, range, whatIsEnemy))
+        {
+            Debug.Log(rayHit.collider.name);
+
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                print("acertou");
+                rayHit.collider.GetComponent<EnemyStatus>().TakeDamage(damage);
+            }
+        }
+        Invoke("ResetShoot", timeBetweenShooting);
+    }
+    public override void MyInput()
+    {
+        if (allowButtonHolds)
+        {
+            shooting = Input.GetButton("Fire1");
+        }
+        else
+        {
+            shooting = Input.GetButtonDown("Fire1");
+        }
         
+        //SetText
+        text.SetText(nameGun);
+
+        //Shoot
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
+            bulletsShot = bulletsPerTap;
+            Shoot();
+        }
     }
 }

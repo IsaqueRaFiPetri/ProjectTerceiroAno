@@ -4,28 +4,28 @@ using TMPro;
 public class GunSystem : MonoBehaviour
 {
     [Header("Gun Stats")]
-    [SerializeField] int damage, magazineSize, bulletsPerTap;
-    [SerializeField] float timeBetweenShooting, range, reloadTime, timeBetweenShots;
-    int bulletsLeft, bulletsShot;
+    [SerializeField] protected int damage, magazineSize, bulletsPerTap;
+    [SerializeField]  protected float timeBetweenShooting, range, reloadTime, timeBetweenShots;
+    protected int bulletsLeft, bulletsShot;
 
     [Header("Bools")]
-    bool shooting, readyToShoot, reloading;
-    [SerializeField] bool allowButtonHolds;
+    protected bool shooting, readyToShoot, reloading;
+    [SerializeField] protected bool allowButtonHolds;
 
     //References
-    Camera cam;
+    protected Camera cam;
     [SerializeField] Transform attackPoint;
-    RaycastHit rayHit;
-    LayerMask whatIsEnemy;
+    protected RaycastHit rayHit;
+    protected LayerMask whatIsEnemy;
 
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] protected TextMeshProUGUI text;
 
     [Header("UI / UX")]
     [SerializeField] GameObject reloadingPainel;
 
     private void Awake()
     {
-        cam = GetComponent<Camera>();
+        cam = GetComponentInParent<Camera>();
 
         bulletsLeft = magazineSize;
         readyToShoot = true;
@@ -33,9 +33,6 @@ public class GunSystem : MonoBehaviour
     private void Update()
     {
         MyInput();
-
-        //SetText
-        text.SetText(bulletsLeft + " / " + magazineSize);
 
         if (reloading == true)
         {
@@ -46,7 +43,7 @@ public class GunSystem : MonoBehaviour
             reloadingPainel.SetActive(false);
         }
     }
-    private void MyInput()
+    public virtual void MyInput()
     {
         if (allowButtonHolds)
         {
@@ -60,6 +57,9 @@ public class GunSystem : MonoBehaviour
         {
             Reload();
         }
+
+        //SetText
+        text.SetText(bulletsLeft + " / " + magazineSize);
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)

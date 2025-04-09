@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class RangedGun : MonoBehaviour
+public class RangedGun : GunSystem
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MyInput();
     }
 }
