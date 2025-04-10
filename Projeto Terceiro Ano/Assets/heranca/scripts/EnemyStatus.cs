@@ -24,7 +24,7 @@ public class EnemyStatus : CharacterStatus
     public virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        SetDestiny();
+        //SetDestiny();
         //SetRandomFixedPointDestiny();
         //NextPointFixerdPatrol();
     }
@@ -74,19 +74,23 @@ public class EnemyStatus : CharacterStatus
         if (canPatrol)
         {
             //SetDestiny();
+            //SetRandomFixedPointDestiny();
+            //NextPointFixerdPatrol();
         }
         else
         {
-            //SetDestiny(); //setar um novo destino e começar a patrulha
+            //SetDestiny();
+            //SetRandomFixedPointDestiny();
+            //NextPointFixerdPatrol();
         }
     }
 
-    public virtual void SetDestiny() //anda para um ponto aleatório
+    protected void SetDestiny() //anda para um ponto aleatório
     {
         agent.SetDestination(SetRandomNavTarget());
         SetMonsterAI(MonsterAI.Patrolling);
     }
-    void SetRandomFixedPointDestiny() //aleatopriza um dos pontos de patrulha
+    protected void SetRandomFixedPointDestiny() //aleatopriza um dos pontos de patrulha
     {
         int random = Random.Range(0, patrolPoints.Length);
         while (random == lastPoint)
@@ -98,7 +102,7 @@ public class EnemyStatus : CharacterStatus
         agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length)].position);
         SetMonsterAI(MonsterAI.Patrolling);
     }
-    void NextPointFixerdPatrol()
+    protected void NextPointFixerdPatrol()
     {
         agent.SetDestination(patrolPoints[patrolPoint].position);
         SetMonsterAI(MonsterAI.Patrolling);
