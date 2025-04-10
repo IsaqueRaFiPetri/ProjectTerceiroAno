@@ -232,10 +232,10 @@ MonoBehaviour:
   damage: 5
   magazineSize: 30
   bulletsPerTap: 1
-  timeBetweenShooting: 0.3
+  timeBetweenShooting: 0.1
   range: 20
   reloadTime: 3
-  timeBetweenShots: 1
+  timeBetweenShots: 0.1
   allowButtonHolds: 1
   attackPoint: {fileID: 1431088164}
   text: {fileID: 1950123837}
@@ -1092,6 +1092,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129969498}
+    - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129969500}
   m_SourcePrefab: {fileID: 100100000, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
 --- !u!1 &1129969496 stripped
 GameObject:
@@ -1124,6 +1127,21 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 1129969495}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129969500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129969496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e240182961b70d046904ecaa1c4cc409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1: {fileID: 1395933584}
+  slot2: {fileID: 792399327}
+  slot3: {fileID: 452843825}
 --- !u!1 &1260599060
 GameObject:
   m_ObjectHideFlags: 0

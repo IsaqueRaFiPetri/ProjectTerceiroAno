@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class CharacterStatus : MonoBehaviour
 {
-    int mana, life;
+    int /*mana,*/ life;
 
-    public int Mana { get => mana; set => mana = value; }
+    //public int Mana { get => mana; set => mana = value; }
     public int Life { get => life; set => life = value; }
 
     [SerializeField]
-    int maxMana, maxLife;
-    public int MaxMana { get => maxMana; }
+    int /*maxMana,*/ maxLife;
+    //public int MaxMana { get => maxMana; }
     public int MaxLife { get => maxLife; }
 
     [SerializeField] Image hpBar, manaBar;
@@ -18,7 +18,7 @@ public class CharacterStatus : MonoBehaviour
     private void Awake()
     {
         life = maxLife;
-        Mana = maxMana;
+        //Mana = maxMana;
     }
 
     public void TakeDamage(int damage)
@@ -26,17 +26,17 @@ public class CharacterStatus : MonoBehaviour
         Life -= damage;
     }
 
-    public void LoseMana(int cost)
+    /*public void LoseMana(int cost)
     {
         Mana -= cost;
-    }
+    }*/
 
-    public void SetLife()
+    public void SetLifeInHUD()
     {
         hpBar.fillAmount = (float)Life / MaxLife;
     }
-    public void SetMana()
+    /*public void SetManaInHUD()
     {
         manaBar.fillAmount = (float)Mana / MaxMana;
-    }
+    }*/
 }
