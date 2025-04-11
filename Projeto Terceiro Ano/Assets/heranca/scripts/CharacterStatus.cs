@@ -21,7 +21,7 @@ public class CharacterStatus : MonoBehaviour
         //Mana = maxMana;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         Life -= damage;
     }

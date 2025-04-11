@@ -12,14 +12,16 @@ public class EnemyStatus : CharacterStatus
 {
     public UnityEvent OnPatrolling, OnChasing, OnBreak;
     public Transform vision, playerPos;
-    protected RaycastHit hit;
-    public Transform[] patrolPoints; //array - não muda dentro do jogo
+    RaycastHit hit;
+    [SerializeField] Transform[] patrolPoints; //array - não muda dentro do jogo
     protected NavMeshAgent agent;
-    protected MonsterAI monsterAI;
+    MonsterAI monsterAI;
     public bool canPatrol;
 
     int lastPoint; //Patrulha aleatória, impede repetir o ponto
     int patrolPoint; //Ponte de patrulha atual, para o de sequencia
+
+    [SerializeField] int damage;
 
     public virtual void Start()
     {
@@ -65,7 +67,7 @@ public class EnemyStatus : CharacterStatus
                     SetMonsterAI(MonsterAI.Break); //caso ainda esteja caçando , cancela
             }
 
-            print(hit.collider.name);
+            //print(hit.collider.name);
         }
     }
     public virtual IEnumerator GiveaBreak()
@@ -100,7 +102,9 @@ public class EnemyStatus : CharacterStatus
         lastPoint = random;
         print(random);
         agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length)].position);
+
         SetMonsterAI(MonsterAI.Patrolling);
+
     }
     protected void NextPointFixerdPatrol()
     {
@@ -123,7 +127,7 @@ public class EnemyStatus : CharacterStatus
         Vector3 finalPosition = hit.position;
         return finalPosition;
     }
-    public virtual void SetMonsterAI(MonsterAI state)
+    protected void SetMonsterAI(MonsterAI state)
     {
         monsterAI = state;
         switch (monsterAI)
@@ -146,4 +150,13 @@ public class EnemyStatus : CharacterStatus
         SetMonsterAI(MonsterAI.Patrolling);
     }
 
+    public override void TakeDamage(int damage)
+    {
+        print("tomou dano");
+        Life -= damage;
+
+        if (Life <= 0)
+            Destroy(gameObject);
+
+    }
 }

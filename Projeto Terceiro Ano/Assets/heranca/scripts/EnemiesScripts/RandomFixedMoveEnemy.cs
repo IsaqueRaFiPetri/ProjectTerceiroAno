@@ -1,16 +1,25 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class RandomFixedMoveEnemy : MonoBehaviour
+public class RandomFixedMoveEnemy : EnemyStatus
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        SetRandomFixedPointDestiny();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override IEnumerator GiveaBreak()
     {
-        
+        yield return new WaitForSeconds(2); //tempo de espera
+        if (canPatrol)
+        {
+            SetRandomFixedPointDestiny();
+        }
+        else
+        {
+            SetRandomFixedPointDestiny(); //setar um novo destino e começar a patrulha
+        }
     }
 }

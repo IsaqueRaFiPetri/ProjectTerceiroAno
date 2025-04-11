@@ -14,7 +14,7 @@ public class MeeleGun : GunSystem
         readyToShoot = false;
 
         //RayCast
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out rayHit, range, whatIsEnemy))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out rayHit, range))
         {
             Debug.Log(rayHit.collider.name);
 

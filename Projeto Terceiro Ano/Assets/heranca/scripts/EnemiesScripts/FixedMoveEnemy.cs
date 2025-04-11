@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RandomMoveEnemy : EnemyStatus
+public class FixedMoveEnemy : EnemyStatus
 {
     public override void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        SetDestiny();
+        NextPointFixerdPatrol();
     }
 
     public override IEnumerator GiveaBreak()
@@ -15,11 +15,11 @@ public class RandomMoveEnemy : EnemyStatus
         yield return new WaitForSeconds(2); //tempo de espera
         if (canPatrol)
         {
-            SetDestiny();
+            NextPointFixerdPatrol();
         }
         else
         {
-            SetDestiny(); //setar um novo destino e começar a patrulha
+            NextPointFixerdPatrol(); //setar um novo destino e começar a patrulha
         }
     }
 }
