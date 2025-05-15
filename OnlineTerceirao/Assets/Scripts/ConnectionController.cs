@@ -50,6 +50,6 @@ public class ConnectionController : MonoBehaviourPunCallbacks //tudo visto em au
         roomOpt.PlayerTtl = 0; //Esse é padrão
         roomOpt.EmptyRoomTtl = 0; //Esse é padrão
 
-        PhotonNetwork.CreateRoom("Room" + Random.Range(0, 100) + Random.Range(0, 100));
+        PhotonNetwork.CreateRoom("Room" /*+ Random.Range(0, 100) + Random.Range(0, 100)*/);
     }
 }
